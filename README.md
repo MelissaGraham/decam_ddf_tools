@@ -9,6 +9,8 @@ sources_per_image_COSMOS.ipynb : looks at how many "good" (R/B > 0.6) objects ar
 
 weather_sky_moon_COSMOS.ipynb : examines correlations between sky factors (moon distance, moon illumination, seeing, and zero-point magnitude) and the number of "good" (R/B > 0.6) object detections per exposure.
 
+SNsearch.ipynb : The purpose of this notebook is to search through the COSMOS field objects to identify candidates that are likely supernovae. This is done by selecting every candidate that has at least 10 detections over at least 15 days, with a change of at least 1.4 mag, and that doesn't increase in brightness more than once
+
 
 ## .txt files:
 

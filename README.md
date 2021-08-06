@@ -11,6 +11,8 @@ weather_sky_moon_COSMOS.ipynb : examines correlations between sky factors (moon 
 
 SNsearch.ipynb : The purpose of this notebook is to search through the COSMOS field objects to identify candidates that are likely supernovae. This is done by selecting every candidate that has at least 10 detections over at least 15 days, with a change of at least 1.4 mag, and that doesn't increase in brightness more than once
 
+SNIasearch.ipynb : Essentially the same as SNsearch.ipynb, but it requires that (after peak r brightness) rmag < gmag, to identify specifically type Ia SNe.
+
 fastrisers.ipynb : This notebook searches the COSMOS field for candidates that (on their first night of detection) rose by at least 0.2 mag over at least 4 detections
 
 

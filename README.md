@@ -15,6 +15,8 @@ SNIasearch.ipynb : Essentially the same as SNsearch.ipynb, but it requires that 
 
 fastrisers.ipynb : This notebook searches the COSMOS field for candidates that (on their first night of detection) rose by at least 0.2 mag over at least 4 detections
 
+RB.ipynb : This notebook demonstrates correlations between the legitimacy of candidates and the RB scores of their candidates
+
 
 ## .txt files:
 

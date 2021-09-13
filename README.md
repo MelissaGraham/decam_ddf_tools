@@ -17,6 +17,9 @@ fastrisers.ipynb : This notebook searches the COSMOS field for candidates that (
 
 RB.ipynb : This notebook demonstrates correlations between the legitimacy of candidates and the RB scores of their candidates
 
+## Modules:
+
+decam_utils.py : Useful functions for exploring our data. Currently only contains make_lc(), a function that makes a lightcurve for a given candidate
 
 ## .txt files:
 

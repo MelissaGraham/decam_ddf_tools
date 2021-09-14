@@ -3,7 +3,7 @@ import matplotlib.pyplot as plt
 import warnings
 warnings.simplefilter(action='ignore', category=FutureWarning)
 
-def make_lc( candname, cursor, rbcut=0.3 ):
+def plotlc( candname, cursor, rbcut=0.6 ):
     """
     This function creates a lightcurve plot for a given candidate in our dataset. To use it, just give it a candidate ID
     and whatever you've named your cursor object, and it will generate a lightcurve plot and return the final data it used to
@@ -13,7 +13,7 @@ def make_lc( candname, cursor, rbcut=0.3 ):
     rbcut : the lower bound to use for the RB cutoff (Default: 0.3)
     """
     # Grabbing all necessary data
-    query = ( 'SELECT o.candidate_id, e.mjd, o.mag, e.filter, o.magerr, e.filename, o.ra FROM objects o '
+    query = ( 'SELECT o.candidate_id, e.mjd, o.mag, e.filter, o.magerr, e.filename, o.ra, o.rb FROM objects o '
              'JOIN subtractions s ON o.subtraction_id = s.id '
              'JOIN exposures e ON e.id = s.exposure_id '
              'WHERE o.candidate_id = %s '
@@ -77,11 +77,14 @@ def make_lc( candname, cursor, rbcut=0.3 ):
         fcandmags = fdata[2].astype(float)
         # Pull out all of the measured magnitude errors
         fcandmagerrs = fdata[4].astype(float)
+        # Pull out all R/B scores
+        fcandrbs = fdata[7].astype(float)
         
         # Create arrays to store the night, mag, and magerr data for just this filter
         fnight  = np.empty( len( fdates ), dtype=object )
         fmag    = np.empty( len( fdates ), dtype=object )
         fmagerr = np.empty( len( fdates ), dtype=object )
+        frb     = np.empty( len( fdates ), dtype=object )
         
         # Loop through each night to assign a magnitude and magnitude error to each
         for j in range( len( fdates ) ):
@@ -92,9 +95,13 @@ def make_lc( candname, cursor, rbcut=0.3 ):
             # the standard deviation of the mag values for the night, and
             # the mean of the pipeline-assigned errors for the night
             fmagerr[j] = np.sqrt( np.mean( fcandmagerrs[msk] )**2 + np.std( fcandmags[msk] )**2 ) 
+            
+            frb[j] = np.mean(fcandrbs[msk])
         
         # Plot the lightcurve in whichever filter we're in
-        plt.errorbar( fdates, fmag, yerr=fmagerr, color=c[i] )
+        plt.plot(fdates, fmag, color=c[i], linestyle='-', ms=0)
+        for k in range(len(fdates)):
+            plt.errorbar( fdates[k], fmag[k], yerr=fmagerr[k], color=c[i], alpha=frb[k] )
         
         # Save this filter's data in the appropriate places for the return statement
         plotdates[i]   = fdates
@@ -109,3 +116,32 @@ def make_lc( candname, cursor, rbcut=0.3 ):
     plt.show()
     
     return plotdates, plotmags, plotmagerrs
+
+
+def rm_dupes( arr, ecols=None ):
+    """
+    Removes duplicate rows from a numpy array. Has functionality to exclude some column(s) from the duplicate-finding process.
+    For the purposes of these notebooks, that should be the index of the object ID column, if your array includes it, and left blank
+    if not. For best results, make sure your array includes candidate id, R/B score, and something to tie it to a specific 
+    exposure (fnm or eid)
+    
+    Takes:
+    arr : the original array with some duplicate rows
+    ecols : index/indices of excluded columns. NOTE: no matter what this index is, it will be the first column of res
+    
+    Returns:
+    res : the original array with the duplicate rows removed
+    """
+    if ecols == None:
+        dupes = arr
+    else:
+        dupes = np.delete(arr, ecols, axis=0)
+    dupes = np.array( [" ".join(i) for i in dupes.transpose()] )
+    unique, ind = np.unique( dupes, return_index=True )
+    uarr = np.array( [ i.split(" ") for i in unique ] ).transpose()
+    if ecols == None:
+        res = uarr
+    else:
+        res = np.append( [arr[ecols][ind]], uarr, axis=0 )
+    print( "%s duplicates removed" % ( len( arr[0] ) - len( res[0] ) ) )
+    return res

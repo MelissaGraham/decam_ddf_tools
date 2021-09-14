@@ -13,7 +13,7 @@ def plotlc( candname, cursor, rbcut=0.6 ):
     rbcut : the lower bound to use for the RB cutoff (Default: 0.3)
     """
     # Grabbing all necessary data
-    query = ( 'SELECT o.candidate_id, e.mjd, o.mag, e.filter, o.magerr, e.filename, o.ra, o.rb FROM objects o '
+    query = ( 'SELECT o.candidate_id, e.mjd, o.mag, e.filter, o.magerr, e.filename, o.ra FROM objects o '
              'JOIN subtractions s ON o.subtraction_id = s.id '
              'JOIN exposures e ON e.id = s.exposure_id '
              'WHERE o.candidate_id = %s '
@@ -77,14 +77,11 @@ def plotlc( candname, cursor, rbcut=0.6 ):
         fcandmags = fdata[2].astype(float)
         # Pull out all of the measured magnitude errors
         fcandmagerrs = fdata[4].astype(float)
-        # Pull out all R/B scores
-        fcandrbs = fdata[7].astype(float)
         
         # Create arrays to store the night, mag, and magerr data for just this filter
         fnight  = np.empty( len( fdates ), dtype=object )
         fmag    = np.empty( len( fdates ), dtype=object )
         fmagerr = np.empty( len( fdates ), dtype=object )
-        frb     = np.empty( len( fdates ), dtype=object )
         
         # Loop through each night to assign a magnitude and magnitude error to each
         for j in range( len( fdates ) ):
@@ -95,13 +92,9 @@ def plotlc( candname, cursor, rbcut=0.6 ):
             # the standard deviation of the mag values for the night, and
             # the mean of the pipeline-assigned errors for the night
             fmagerr[j] = np.sqrt( np.mean( fcandmagerrs[msk] )**2 + np.std( fcandmags[msk] )**2 ) 
-            
-            frb[j] = np.mean(fcandrbs[msk])
-        
+                    
         # Plot the lightcurve in whichever filter we're in
-        plt.plot(fdates, fmag, color=c[i], linestyle='-', ms=0)
-        for k in range(len(fdates)):
-            plt.errorbar( fdates[k], fmag[k], yerr=fmagerr[k], color=c[i], alpha=frb[k] )
+        plt.errorbar( fdates, fmag, yerr=fmagerr, color=c[i] )
         
         # Save this filter's data in the appropriate places for the return statement
         plotdates[i]   = fdates

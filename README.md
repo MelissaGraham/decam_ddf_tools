@@ -19,7 +19,9 @@ RB.ipynb : This notebook looks for correlations between the legitimacy of candid
 
 ## Modules:
 
-decam_utils.py : Useful functions for exploring our data. Currently only contains make_lc(), a function that makes a lightcurve for a given candidate
+decam_utils.py : Useful functions for exploring our data. Currently contains:
+plotlc(), a function that makes a lightcurve for a given candidate
+rm_dupes(), a function that removes duplicate rows from arrays
 
 ## .txt files:
 

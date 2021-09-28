@@ -3,20 +3,22 @@ import matplotlib.pyplot as plt
 import warnings
 warnings.simplefilter(action='ignore', category=FutureWarning)
 
-def plotlc( candname, cursor, rbcut=0.6 ):
+def plotlc( candname, cursor, rbcut=0.6, show_plot=True ):
     """
     This function creates a lightcurve plot for a given candidate in our dataset. To use it, just give it a candidate ID
     and whatever you've named your cursor object, and it will generate a lightcurve plot and return the final data it used to
     make that plot in the form [gxdata, rxdata, ixdata], [gydata, rydata, iydata], [gyerrs, ryerrs, iyerrs].
     
     The optional argument(s):
-    rbcut : the lower bound to use for the RB cutoff (Default: 0.3)
+    rbcut : the lower bound to use for the RB cutoff (Default: 0.6)
+    show_plot : Boolean, if True, generates a plot, if False, just returns the numbers
     """
     # Grabbing all necessary data
     query = ( 'SELECT o.candidate_id, e.mjd, o.mag, e.filter, o.magerr, e.filename, o.ra FROM objects o '
              'JOIN subtractions s ON o.subtraction_id = s.id '
              'JOIN exposures e ON e.id = s.exposure_id '
-             'WHERE o.candidate_id = %s '
+             'WHERE o.candidate_id = %s'
+             'AND e.mjd < 59377 ' 
              'AND o.rb > %s '
              'ORDER BY o.candidate_id '
              'LIMIT 10000000' )
@@ -60,7 +62,8 @@ def plotlc( candname, cursor, rbcut=0.6 ):
     if field == "COSMOS": c = ["darkgreen", "red", "brown"]
     elif field == "ELIAS": c = ["limegreen", "darkorange", "peru"]
     
-    plt.figure(figsize=(8,5))
+    if show_plot==True:
+        plt.figure(figsize=(8,5))
     
     filters = ["g", "r", "i"]
     for i in [0, 1, 2]: # Looping through filters
@@ -94,7 +97,8 @@ def plotlc( candname, cursor, rbcut=0.6 ):
             fmagerr[j] = np.sqrt( np.mean( fcandmagerrs[msk] )**2 + np.std( fcandmags[msk] )**2 ) 
                     
         # Plot the lightcurve in whichever filter we're in
-        plt.errorbar( fdates, fmag, yerr=fmagerr, color=c[i] )
+        if show_plot==True:
+            plt.errorbar( fdates, fmag, yerr=fmagerr, color=c[i] )
         
         # Save this filter's data in the appropriate places for the return statement
         plotdates[i]   = fdates
@@ -102,11 +106,12 @@ def plotlc( candname, cursor, rbcut=0.6 ):
         plotmagerrs[i] = fmagerr
     
     # Plot formatting
-    plt.title(candname)
-    plt.ylabel("Magnitude")
-    plt.xlabel("MJD")
-    plt.gca().invert_yaxis()
-    plt.show()
+    if show_plot==True:
+        plt.title(candname, fontsize=16)
+        plt.ylabel("Magnitude", fontsize=16)
+        plt.xlabel("MJD", fontsize=16)
+        plt.gca().invert_yaxis()
+        plt.show()
     
     return plotdates, plotmags, plotmagerrs
 

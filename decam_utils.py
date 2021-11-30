@@ -14,12 +14,13 @@ def plotlc( candname, cursor, rbcut=0.6, show_plot=True ):
     show_plot : Boolean, if True, generates a plot, if False, just returns the numbers
     """
     # Grabbing all necessary data
-    query = ( 'SELECT o.candidate_id, e.mjd, o.mag, e.filter, o.magerr, e.filename, o.ra FROM objects o '
+    query = ( 'SELECT o.candidate_id, e.mjd, o.mag, e.filter, o.magerr, e.filename, rbs.ra FROM objects o '
              'JOIN subtractions s ON o.subtraction_id = s.id '
              'JOIN exposures e ON e.id = s.exposure_id '
+             'JOIN objectrbs as rbs ON o.id=rbs.object_id AND rbs.rbtype_id=1 '
              'WHERE o.candidate_id = %s'
              'AND e.mjd < 59377 ' 
-             'AND o.rb > %s '
+             'AND rbs.rb > %s '
              'ORDER BY o.candidate_id '
              'LIMIT 10000000' )
     cursor.execute(query, (candname, rbcut))

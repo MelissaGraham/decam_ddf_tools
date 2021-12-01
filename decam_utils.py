@@ -14,12 +14,12 @@ def plotlc( candname, cursor, rbcut=0.6, show_plot=True ):
     show_plot : Boolean, if True, generates a plot, if False, just returns the numbers
     """
     # Grabbing all necessary data
-    query = ( 'SELECT o.candidate_id, e.mjd, o.mag, e.filter, o.magerr, e.filename, rbs.ra FROM objects o '
+    query = ( 'SELECT o.candidate_id, e.mjd, o.mag, e.filter, o.magerr, e.filename, rbs.rb FROM objects o '
              'JOIN subtractions s ON o.subtraction_id = s.id '
              'JOIN exposures e ON e.id = s.exposure_id '
              'JOIN objectrbs as rbs ON o.id=rbs.object_id AND rbs.rbtype_id=1 '
              'WHERE o.candidate_id = %s'
-             'AND e.mjd < 59377 ' 
+             # 'AND e.mjd < 59377 ' 
              'AND rbs.rb > %s '
              'ORDER BY o.candidate_id '
              'LIMIT 10000000' )
@@ -32,8 +32,8 @@ def plotlc( candname, cursor, rbcut=0.6, show_plot=True ):
     udata = np.array( [ i.split(" ") for i in unique ] ).transpose()    
     
     # Read in lookup table with filenames and exposure times
-    lutable = np.loadtxt( "archive_image_list.txt", dtype=object ).transpose()
-    fnmtable, exptable = lutable[0], lutable[7].astype(float)
+    lutable = np.loadtxt( "fnm_exptime.txt", dtype=object ).transpose()
+    fnmtable, exptable = lutable[0], lutable[1].astype(float)
 
     # Assign filenames and truncate to match lookup table format
     fnms = udata[5]

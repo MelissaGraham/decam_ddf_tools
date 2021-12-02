@@ -3,7 +3,7 @@ import matplotlib.pyplot as plt
 import warnings
 warnings.simplefilter(action='ignore', category=FutureWarning)
 
-def plotlc( candname, cursor, rbcut=0.6, show_plot=True ):
+def plotlc( candname, cursor, rbcut=0.6, show_plot=True, term='AB' ):
     """
     This function creates a lightcurve plot for a given candidate in our dataset. To use it, just give it a candidate ID
     and whatever you've named your cursor object, and it will generate a lightcurve plot and return the final data it used to
@@ -12,18 +12,30 @@ def plotlc( candname, cursor, rbcut=0.6, show_plot=True ):
     The optional argument(s):
     rbcut : the lower bound to use for the RB cutoff (Default: 0.6)
     show_plot : Boolean, if True, generates a plot, if False, just returns the numbers
+    term : Either 'A', 'B', or 'AB', depending on whether you want to see data from 2021A, 2021B, or both (default: 'AB')
     """
+    
+    # Accounting for which term was selected. It's messy, but I can't seem to figure out a more elegant solution
+    if term == 'A': term='2021A-0113'
+    elif term == 'B': term='2021B-0149'
+    if term == 'AB': propid = ''
+    else: 
+        propid = 'AND e.proposalid = %s '
+        
     # Grabbing all necessary data
     query = ( 'SELECT o.candidate_id, e.mjd, o.mag, e.filter, o.magerr, e.filename, rbs.rb FROM objects o '
              'JOIN subtractions s ON o.subtraction_id = s.id '
              'JOIN exposures e ON e.id = s.exposure_id '
              'JOIN objectrbs as rbs ON o.id=rbs.object_id AND rbs.rbtype_id=1 '
-             'WHERE o.candidate_id = %s'
-             # 'AND e.mjd < 59377 ' 
+             'WHERE o.candidate_id = %s '
+             +propid+ 
              'AND rbs.rb > %s '
              'ORDER BY o.candidate_id '
              'LIMIT 10000000' )
-    cursor.execute(query, (candname, rbcut))
+    
+    
+    if term=='AB': cursor.execute(query, (candname, rbcut, ))
+    else: cursor.execute(query, (candname, term, rbcut, ))
     rawdata = np.array(cursor.fetchall())
     
     # Removing duplicates
@@ -144,3 +156,21 @@ def rm_dupes( arr, ecols=None ):
         res = np.append( [arr[ecols][ind]], uarr, axis=0 )
     print( "%s duplicates removed" % ( len( arr[0] ) - len( res[0] ) ) )
     return res
+
+def pull_exptimes(cursor):
+    """
+    Updates 'fnm_exptime.txt' with the latest observations from the database
+    """
+    query = ("SELECT filename, header "
+         "FROM exposures "
+         "LIMIT 1000000")
+    cursor.execute(query)
+
+    result = np.array(cursor.fetchall()).transpose()
+
+    result[0] = [i[:21] for i in result[0]] # Truncate to just the important part of the filename
+    result[1] = [str(i) for i in [i["EXPTIME"] for i in result[1]]] # Pull out the exposure times
+
+    result = np.array(result, dtype=str).transpose()
+    
+    np.savetxt("fnm_exptime.txt",result,fmt='%s', delimiter = "\t", header = "fnm \t exptime")

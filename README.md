@@ -7,40 +7,46 @@ Note:
  * "candidate" refers to associated detections at a given sky location
 
 
-## Python notebooks:
+## Notebooks (Complete)
 
-### Done.
+### image_processing_summary.ipynb
 
-#### image_processing_summary.ipynb
+**Description**<br>
+ * Create plots to analyze the DDF's image quality parameters.
+   * e.g., limiting magnitude, sky background, seeing, and zeropoint
+   * how parameters are correlated with moon separation/illumination
 
-Create plots to analyze the DDF's image quality parameters.
- * e.g., limiting magnitude, sky background, seeing, and zeropoint
- * how parameters are correlated with moon separation/illumination
-
-Inputs/Outputs
+**Inputs/Outputs**<br>
  * inputs are Rob's databases, requires password
  * outputs are plots in `image_processing_summary_figures/`
 
-#### source_detection_summary.ipynb
+### source_detection_summary.ipynb
 
-Create plots to explore object detection and R/B scores vs. image quality.
+**Description**<br>
+ * Create plots to explore object detection and R/B scores vs. image quality.
+ * Identify "probably-real" candidates (>10 detections, mean R/B>0.4) and create data files just for these candidates.
+ * Write two naive filters to test methods for identifying transients and fast-risers with alerts. Find they're too simple to work well.
+   * 'Transients' as candidates with >=5 objects in two consecutive nights in any filter (118 candidates)
+   * 'Fast Risers' as candidates with >=5 objects in the first night in any filter, all brightening (0 candidates)
 
-Identify "probably-real" candidates (>10 detections, mean R/B>0.4) and create data files just for these candidates.
-
-Write two naive filters to test methods for identifying transients and fast-risers with alerts. Find they're too simple to work well.
- * 'Transients' as candidates with >=5 objects in two consecutive nights in any filter (118 candidates)
- * 'Fast Risers' as candidates with >=5 objects in the first night in any filter, all brightening (0 candidates)
-
-Inputs/Outputs
+**Inputs/Outputs**<br>
  * inputs are Rob's databases, requires password
  * output plots are in `source_detection_summary_figures/`
  * output files of candidate data are in `source_detection_summary_files/`
    * candidates.dat (summary statistics for "probably-real" candidates, like number of detections)
    * exposures_field.dat (data for all exposures, e.g., limiting magnitudes, seeing)
    * lightcurves_field.dat (all objects for all "probably-real" candidates)
-   
 
-### In Progress.
+### candidate_nightly_epochs.ipynb
+
+**Description**<br>
+ * Use the data files of "probably-real" candidates and combine intra-night detections (objects) into nightly-epoch photometry.
+
+**Inputs/Outputs**<br>
+ * inputs are the candidate data files in `source_detection_summary_files/` (no password)
+
+
+## Notebooks In Progress.
 
 candidate_summary.ipynb : classify candidates identified as interesting by source_detection_summary
 

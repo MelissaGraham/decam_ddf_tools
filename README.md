@@ -1,13 +1,43 @@
 # decam_ddf_tools
 Tools for analyzing the DECam DDF program data.
 
+Note:
+
+ * "object" refers to a single detection in a difference image
+ * "candidate" refers to associated detections at a given sky location
+
+
 ## Python notebooks:
 
 ### Done.
 
-image_processing_summary.ipynb : plots to analyze the DDF's image quality parameters, such as limiting magnitude, sky background, seeing, and zeropoint; histgrams, time evolution, correlations with other parameters and with the moon separation and illumination fraction
+#### image_processing_summary.ipynb
 
-source_detection_summary.ipynb : plots to explore how the sources detected in the difference images, and their R/B scores, are affected by image quality; identification of probably-real transients by imposing cuts on the candidate characteristics; write to file just interesting candidates data
+ * plots to analyze the DDF's image quality parameters
+   * e.g., limiting magnitude, sky background, seeing, and zeropoint
+   * how parameters are correlated with moon separation/illumination
+
+
+ * inputs are Rob's databases, requires password
+ * outputs are plots in `image_processing_summary_figures/`
+
+#### source_detection_summary.ipynb
+
+ * plots to explore object detection and R/B scores vs. image quality
+ * identification of "probably-real" candidates (>10 detections, mean R/B>0.4)
+   * creates files of candidate data (see below)
+ * two naive filters to test identification of transients and fast-risers
+   * candidates with >=5 objects in two consecutive nights in any filter (118 candidates)
+   * candidates with >=5 objects in the first night in any filter, all brightening (0 candidates)
+
+
+ * inputs are Rob's databases, requires password
+ * output plots are in `source_detection_summary_figures/`
+ * output files of candidate data are in `source_detection_summary_files/`
+   * candidates.dat (summary statistics for "probably-real" candidates, like number of detections)
+   * exposures_field.dat (data for all exposures, e.g., limiting magnitudes, seeing)
+   * lightcurves_field.dat (all objects for all "probably-real" candidates)
+   
 
 ### In Progress.
 

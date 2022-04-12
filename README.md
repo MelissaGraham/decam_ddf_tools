@@ -13,24 +13,25 @@ Note:
 
 #### image_processing_summary.ipynb
 
- * plots to analyze the DDF's image quality parameters
-   * e.g., limiting magnitude, sky background, seeing, and zeropoint
-   * how parameters are correlated with moon separation/illumination
+Create plots to analyze the DDF's image quality parameters.
+ * e.g., limiting magnitude, sky background, seeing, and zeropoint
+ * how parameters are correlated with moon separation/illumination
 
-
+Inputs/Outputs
  * inputs are Rob's databases, requires password
  * outputs are plots in `image_processing_summary_figures/`
 
 #### source_detection_summary.ipynb
 
- * plots to explore object detection and R/B scores vs. image quality
- * identification of "probably-real" candidates (>10 detections, mean R/B>0.4)
-   * creates files of candidate data (see below)
- * two naive filters to test identification of transients and fast-risers
-   * candidates with >=5 objects in two consecutive nights in any filter (118 candidates)
-   * candidates with >=5 objects in the first night in any filter, all brightening (0 candidates)
+Create plots to explore object detection and R/B scores vs. image quality.
 
+Identify "probably-real" candidates (>10 detections, mean R/B>0.4) and create data files just for these candidates.
 
+Write two naive filters to test methods for identifying transients and fast-risers with alerts. Find they're too simple to work well.
+ * 'Transients' as candidates with >=5 objects in two consecutive nights in any filter (118 candidates)
+ * 'Fast Risers' as candidates with >=5 objects in the first night in any filter, all brightening (0 candidates)
+
+Inputs/Outputs
  * inputs are Rob's databases, requires password
  * output plots are in `source_detection_summary_figures/`
  * output files of candidate data are in `source_detection_summary_files/`

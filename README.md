@@ -5,6 +5,9 @@ Note:
 
  * "object" refers to a single detection in a difference image
  * "candidate" refers to associated detections at a given sky location
+ * "probably-real" candidates means >10 detections, mean R/B>0.4
+   * cuts shown to be reasonable in `source_detection_summary_figures.ipynb/`
+   * cuts also discussed in Section 3 of Graham et al. (in prep)
 
 
 ## Notebooks (Complete)
@@ -24,7 +27,7 @@ Note:
 
 **Description**<br>
  * Create plots to explore object detection and R/B scores vs. image quality.
- * Identify "probably-real" candidates (>10 detections, mean R/B>0.4) and create data files just for these candidates.
+ * Identify **"probably-real" candidates (>10 detections, mean R/B>0.4)** and create data files just for these candidates.
  * Write two naive filters to test methods for identifying transients and fast-risers with alerts. Find they're too simple to work well.
    * 'Transients' as candidates with >=5 objects in two consecutive nights in any filter (118 candidates)
    * 'Fast Risers' as candidates with >=5 objects in the first night in any filter, all brightening (0 candidates)
@@ -32,7 +35,7 @@ Note:
 **Inputs/Outputs**<br>
  * inputs are Rob's databases, requires password
  * output plots are in `source_detection_summary_figures/`
- * output files of candidate data are in `source_detection_summary_files/`
+ * output files of **"probably-real"** candidate data are in `source_detection_summary_files/`
    * candidates.dat (summary statistics for "probably-real" candidates, like number of detections)
    * candidate_objects_field.dat (all objects for all "probably-real" candidates)
    * exposures_field.dat (data for all exposures, e.g., limiting magnitudes, seeing)
@@ -40,7 +43,7 @@ Note:
 ### candidate_nightly_epochs.ipynb
 
 **Description**<br>
- * Use the data files of "probably-real" candidates and combine intra-night detections (objects) into nightly-epoch photometry.
+ * Use the data files of **"probably-real" candidates** and combine intra-night detections (objects) into nightly-epoch photometry.
  * Calculate summary parameters for the nightly-epoch lightcurves like duration and amplitude.
 
 **Inputs/Outputs**<br>

@@ -34,29 +34,44 @@ Note:
  * output plots are in `source_detection_summary_figures/`
  * output files of candidate data are in `source_detection_summary_files/`
    * candidates.dat (summary statistics for "probably-real" candidates, like number of detections)
+   * candidate_objects_field.dat (all objects for all "probably-real" candidates)
    * exposures_field.dat (data for all exposures, e.g., limiting magnitudes, seeing)
-   * lightcurves_field.dat (all objects for all "probably-real" candidates)
 
 ### candidate_nightly_epochs.ipynb
 
 **Description**<br>
  * Use the data files of "probably-real" candidates and combine intra-night detections (objects) into nightly-epoch photometry.
+ * Calculate summary parameters for the nightly-epoch lightcurves like duration and amplitude.
 
 **Inputs/Outputs**<br>
  * inputs are the candidate data files in `source_detection_summary_files/` (no password)
+ * output files are in `candidate_nightly_epochs_files/`
+   * candidate_lightcurves.dat (combined nightly-epoch photometry, and magnitude limits)
+   * candidate_lightcurve_parameters.dat (duration, amplitude, and number of epochs)
 
 
 ## Notebooks In Progress.
 
-candidate_summary.ipynb : classify candidates identified as interesting by source_detection_summary
+### candidate_summary.ipynb
 
-explore_galactic_tables.ipynb : ?
+TBD; explore trends in the candidate lightcurve parameters, attempt to identify transient types.
 
-SNsearch.ipynb : The purpose of this notebook is to search through the extragalactic field to identify candidates that are likely supernovae. This is done by selecting every candidate that has at least X detections over at least Y days, with a change of at least Z mag, and that doesn't increase in brightness more than once
+<br>
 
-SNIasearch.ipynb : Essentially the same as SNsearch.ipynb, but it requires that (after peak r brightness) rmag < gmag in an effort to identify specifically type Ia SNe.
+### explore_galactic_tables.ipynb
 
-fastrisers.ipynb : This notebook searches the extragalactic fields for candidates that (on their first night of detection) rose monotonically by at least X mag over at least Y detections in the same night.
+TBD.
+
+### SNsearch.ipynb
+The purpose of this notebook is to search through the extragalactic field to identify candidates that are likely supernovae. This is done by selecting every candidate that has at least X detections over at least Y days, with a change of at least Z mag, and that doesn't increase in brightness more than once
+
+### SNIasearch.ipynb
+Essentially the same as SNsearch.ipynb, but it requires that (after peak r brightness) rmag < gmag in an effort to identify specifically type Ia SNe.
+
+### fastrisers.ipynb
+This notebook searches the extragalactic fields for candidates that (on their first night of detection) rose monotonically by at least X mag over at least Y detections in the same night.
+
+<br>
 
 ## Modules:
 

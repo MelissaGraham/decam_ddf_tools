@@ -2,14 +2,14 @@
 
 Tools for analyzing the DECam DDF extragalactic fields' data, COSMOS and ELAIS.
 
-For science investigations with the candidates nightly-epoch lightcurves, see the science_with_candidates/ directory.
+For science investigations with the candidates nightly-epoch lightcurves, see the `science_with_candidates/` directory.
 
 Note:
 
  * "object" refers to a single detection in a difference image
  * "candidate" refers to associated detections at a given sky location
- * "probably-real" candidates means >10 detections, mean R/B>0.4
-   * cuts shown to be reasonable in `source_detection_summary_figures.ipynb/`
+ * "probably-real" extragalactic candidates means >10 detections, mean R/B>0.4
+   * cuts shown to be reasonable in `extragalactic_fields/source_detection_summary_figures.ipynb/`
    * cuts also discussed in Section 3 of Graham et al. (in prep)
 
 

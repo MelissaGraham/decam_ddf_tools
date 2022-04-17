@@ -10,16 +10,8 @@ Recall:
    * cuts shown to be reasonable in `source_detection_summary_figures.ipynb/`
    * cuts also discussed in Section 3 of Graham et al. (in prep)
 
-
-## Modules:
-
-decam_utils.py : Useful functions for exploring our data. Currently contains:
- * plotlc(), a function that makes a lightcurve for a chosen candidate
- * rm_dupes(), a function that removes duplicate rows from arrays
- * pull_exptimes(), a function that updates fnm_exptime.txt
  
- 
-## Notebooks (Complete)
+## Notebooks (In Progress).
 
 ### 01_demo_candidates.ipynb
 
@@ -30,13 +22,5 @@ decam_utils.py : Useful functions for exploring our data. Currently contains:
  * inputs are the candidate data files in `source_detection_summary_files/` (no password)
  * polygons_tspan_lcamp.dat
 
-## Notebooks (In Progress).
+### MLG_snia_menagerie.ipynb
 
-### SNIasearch.ipynb
-
-### SNsearch.ipynb
-
-### fastrisers.ipynb
-
-**Inputs/Outputs**<br>
- * uses decam_utils.py

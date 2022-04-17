@@ -4,6 +4,8 @@ Tools for analyzing the DECam DDF extragalactic fields' data, COSMOS and ELAIS.
 
 For science investigations with the candidates nightly-epoch lightcurves, see the `science_with_candidates/` directory.
 
+The notebooks in the `science_with_objects/` use the non-public databases and are still in development.
+
 Note:
 
  * "object" refers to a single detection in a difference image
@@ -53,12 +55,15 @@ Note:
  * inputs are the candidate data files in `source_detection_summary_files/` (no password)
  * output files are in `candidate_nightly_epochs_files/`
    * candidate_lightcurves.dat (combined nightly-epoch photometry, and magnitude limits)
-   * candidate_lightcurve_parameters.dat (duration, amplitude, and number of epochs)
-
-
-## Notebooks In Progress.
+   * candidate_lightcurve_parameters.dat (duration, minimum magnitude, amplitude, and number of epochs)
 
 ### candidate_summary.ipynb
 
-TBD; explore trends in the candidate lightcurve parameters, attempt to identify transient types.
-
+**Description**<br>
+ * Use the candidate nightly-epoch lightcurves files to explore the lightcurve parameters.
+ * Plot histograms of candidate lightcurve parameters (time span, amplitude, minimum magnitude, number of epochs).
+ * Plot lightcurves of special candidates (brightest, best sampled, etc.)
+ 
+**Inputs/Outputs**<br>
+ * inputs are the files in `candidate_nightly_epochs_files/`
+ * no outputs (plots displayed in line)

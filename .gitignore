@@ -1,1 +1,4 @@
-source_detection_summary_figures/old/
+.ipynb_checkpoints
+extragalactic_fields/.ipynb_checkpoints
+galactic_fields/.ipynb_checkpoints
+__pycache__

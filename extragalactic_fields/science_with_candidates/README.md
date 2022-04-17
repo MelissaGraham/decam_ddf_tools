@@ -19,8 +19,17 @@ Recall:
  * Demonstrates how to use the available candidates data.
 
 **Inputs/Outputs**<br>
- * inputs are the candidate data files in `source_detection_summary_files/` (no password)
- * polygons_tspan_lcamp.dat
+ * inputs are the candidate data files in `candidate_nightly_epoch_files/` (no password)
 
 ### MLG_snia_menagerie.ipynb
+
+**Description**<br>
+ * Uses known relations between light curve duration and amplitude to identify potential SNIa.
+ * Plots a 5x5 grid of lightcurves for potential SNeIa.
+
+**Inputs/Outputs**<br>
+ * inputs are:
+   * the candidate data files in `candidate_nightly_epoch_files/` (no password)
+   * `MLG_snia_menagerie_files/MLG_polygons_tspan_lcamp.dat` (no password)
+ * output is `MLG_snia_menagerie_files/MLG_snia_menagerie.png`
 

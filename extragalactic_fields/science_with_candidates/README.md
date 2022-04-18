@@ -42,7 +42,7 @@ Recall:
 
 **Inputs/Outputs**<br>
  * inputs are:
-   * the candidate data files in `candidate_nightly_epoch_files/` (no password)
-   * `MLG_snia_menagerie_files/MLG_polygons_tspan_lcamp.dat` (no password)
+   * the candidate data files in `candidate_nightly_epoch_files/`
+   * `MLG_snia_menagerie_files/MLG_polygons_tspan_lcamp.dat`
  * output is `MLG_snia_menagerie_files/MLG_snia_menagerie.png`
 

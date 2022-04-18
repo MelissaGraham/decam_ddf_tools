@@ -2,7 +2,7 @@
 
 Tools for analyzing the DECam DDF extragalactic fields' data, COSMOS and ELAIS.
 
-For science investigations with the candidates nightly-epoch lightcurves, see the `science_with_candidates/` directory.
+To do science investigations with the publicly-available "probably-real" (see below) candidates, using either their individual-exposure photometry or combined nightly-epoch lightcurves, see the `science_with_candidates/` directory.
 
 The notebooks in the `science_with_objects/` use the non-public databases and are still in development.
 

@@ -1,5 +1,5 @@
 # Melissa Graham, source_detection_summary.ipynb 
-# UTC = Tue, 12 Apr 2022 21:07:57 +0000 
+# Candidates with >10 objects and a mean R/B score > 0.4.# UTC = Mon, 18 Apr 2022 00:51:28 +0000 
 # 
 # Columns 
 #  0 candidate id 

@@ -7,7 +7,7 @@ Recall:
  * "object" refers to a single detection in a difference image
  * "candidate" refers to associated detections at a given sky location
  * "probably-real" candidates means >10 detections, mean R/B>0.4
-   * cuts shown to be reasonable in `source_detection_summary_figures.ipynb/`
+   * cuts shown to be reasonable in `source_detection_summary_figures.ipynb`
    * cuts also discussed in Section 3 of Graham et al. (in prep)
 
  
@@ -17,6 +17,7 @@ Recall:
 
 **Description**<br>
  * Demonstrates how to use the available candidates data.
+   * Make lightcurve plots that combine individual exposures, nightly-epoch photometry, and non-detection limits.
 
 **Inputs/Outputs**<br>
  * inputs are the candidate data files in `candidate_nightly_epoch_files/` (no password)

@@ -57,7 +57,7 @@ Note:
    * candidate_lightcurves.dat (combined nightly-epoch photometry, and magnitude limits)
    * candidate_lightcurve_parameters.dat (duration, minimum magnitude, amplitude, and number of epochs)
 
-### candidate_summary.ipynb
+### candidate_nightly_epochs_summary.ipynb
 
 **Description**<br>
  * Use the candidate nightly-epoch lightcurves files to explore the lightcurve parameters.

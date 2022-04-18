@@ -1,7 +1,11 @@
 # decam_ddf_tools
 Tools for analyzing the DECam DDF program data.
 
-To use the nightly-epoch lightcurves for probably-real candidates in the extragalactic fields (COSMOS and ELAIS), look in the `extragalactic_fields/science_with_candidates/` directory.
+To use the publicly-available photometry for candidates in the extragalactic fields (COSMOS and ELAIS), please go straight to the `extragalactic_fields/science_with_candidates/` directory (<a href="https://github.com/MelissaGraham/decam_ddf_tools/tree/main/extragalactic_fields/science_with_candidates">link</a>).
+
+All of the notebooks in this repo use Python 3 and were developed in the NERSC JupyterHub environment.
+
+Most of the notebooks (except in the `extragalactic_fields/science_with_candidates/` directory) access password-protected databases and are not intended for public use.
 
 Note:
 

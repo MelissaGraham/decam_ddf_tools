@@ -1,6 +1,10 @@
 # decam_ddf_tools / extragalactic_fields / science_with_candidates
 
-Tools for analyzing "probably-real" candidates in the DECam DDF extragalactic fields' data, COSMOS and ELAIS.
+Tools for analyzing publicly-available "probably-real" (see below) candidates datasets from the DECam DDF extragalactic fields, COSMOS and ELAIS.
+
+Start with the notebook 01_demo_candidates.ipynb to learn about the candidate datasets available and how to use them. 
+
+Anyone is welcome to use these data. Enjoy!
 
 Recall:
 
@@ -16,11 +20,19 @@ Recall:
 ### 01_demo_candidates.ipynb
 
 **Description**<br>
- * Demonstrates how to use the available candidates data.
-   * Make lightcurve plots that combine individual exposures, nightly-epoch photometry, and non-detection limits.
+ * Demonstrates how to use the available candidates data files.
+ * Make lightcurve plots that combine individual exposures, nightly-epoch photometry, and non-detection limits.
 
 **Inputs/Outputs**<br>
- * inputs are the candidate data files in `candidate_nightly_epoch_files/` (no password)
+ * inputs include:
+   * `source_detection_summary_files/`
+     * exposures.dat (exposure data, e.g., date, seeing, limiting magnitudes)
+     * candidates.dat ("probably-real" candidate data, e.g., ra, dec, number of objects, mean R/B score)
+     * candidates_object.dat (all detections for all "probably-real" candidates, e.g., mag, R/B score)
+   * `candidate_nightly_epoch_files/`
+     * candidate_lightcurves.dat (nightly-combined photometry for "probably-real" candidates)
+     * candidate_lightcurve_parameters.dat (e.g., time span, minimum magnitude, amplitude, number of epochs)
+ * no outputs, just in-line plots
 
 ### MLG_snia_menagerie.ipynb
 

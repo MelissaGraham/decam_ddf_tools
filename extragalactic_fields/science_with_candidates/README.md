@@ -15,7 +15,7 @@ Recall:
    * cuts also discussed in Section 3 of Graham et al. (in prep)
 
  
-## Notebooks (In Progress).
+## Notebooks (Complete)
 
 ### 01_demo_candidates.ipynb
 
@@ -46,3 +46,4 @@ Recall:
    * `MLG_snia_menagerie_files/MLG_polygons_tspan_lcamp.dat`
  * output is `MLG_snia_menagerie_files/MLG_snia_menagerie.png`
 
+## Notebooks (In Progress)

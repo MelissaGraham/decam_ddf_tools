@@ -66,4 +66,4 @@ Note:
  
 **Inputs/Outputs**<br>
  * inputs are the files in `candidate_nightly_epochs_files/`
- * no outputs (plots displayed in line)
+ * output plots are in `candidate_nightly_epochs_figures/`

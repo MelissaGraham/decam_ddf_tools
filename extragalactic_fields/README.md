@@ -10,7 +10,7 @@ Note:
 
  * "object" refers to a single detection in a difference image
  * "candidate" refers to associated detections at a given sky location
- * "probably-real" extragalactic candidates means >10 detections, mean R/B>0.4
+ * "probably-real" extragalactic candidates means >= 10 detections, mean R/B >= 0.4
    * cuts shown to be reasonable in `extragalactic_fields/source_detection_summary_figures.ipynb/`
    * cuts also discussed in Section 3 of Graham et al. (in prep)
 
@@ -32,7 +32,7 @@ Note:
 
 **Description**<br>
  * Create plots to explore object detection and R/B scores vs. image quality.
- * Identify **"probably-real" candidates (>10 detections, mean R/B>0.4)** and create data files just for these candidates.
+ * Identify **"probably-real" candidates (>= 10 detections, mean R/B >= 0.4)** and create data files just for these candidates.
  * Write two naive filters to test methods for identifying transients and fast-risers with alerts. Find they're too simple to work well.
    * 'Transients' as candidates with >=5 objects in two consecutive nights in any filter (118 candidates)
    * 'Fast Risers' as candidates with >=5 objects in the first night in any filter, all brightening (0 candidates)

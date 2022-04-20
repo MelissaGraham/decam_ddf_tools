@@ -21,6 +21,8 @@ Recall:
 
 ### 01_demo_candidates.ipynb
 
+Is saved in an executed state as a quicklook demo.
+
 **Description**<br>
  * Demonstrates how to use the available candidates data files.
  * Make lightcurve plots that combine individual exposures, nightly-epoch photometry, and non-detection limits.

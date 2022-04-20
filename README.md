@@ -9,6 +9,8 @@ Most of the notebooks (except in the `extragalactic_fields/science_with_candidat
 
 DECAT Extragalactic Subtraction Viewer (by Rob Knop): https://decat-webap.lbl.gov/decatview.py/
 
+The proprietary period for all images have been waived. All can be found in the NOIRLab Astro Data Archive: https://noirlab.edu/public/projects/astrodataarchive/ using proposal ids 2021A-0113 and 2021B-0149 (PI Graham).
+
 Note:
 
  * "object" refers to a single detection in a difference image

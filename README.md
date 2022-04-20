@@ -7,6 +7,8 @@ All of the notebooks in this repo use Python 3 and were developed in the NERSC J
 
 Most of the notebooks (except in the `extragalactic_fields/science_with_candidates/` directory) access password-protected databases and are not intended for public use.
 
+DECAT Extragalactic Subtraction Viewer (by Rob Knop): https://decat-webap.lbl.gov/decatview.py/
+
 Note:
 
  * "object" refers to a single detection in a difference image

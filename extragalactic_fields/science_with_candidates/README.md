@@ -4,6 +4,8 @@ Tools for analyzing publicly-available "probably-real" (see below) candidates da
 
 Start with the notebook 01_demo_candidates.ipynb to learn about the candidate datasets available and how to use them. 
 
+See also the DECAT Extragalactic Subtraction Viewer (by Rob Knop): https://decat-webap.lbl.gov/decatview.py/
+
 Anyone is welcome to use these data. Enjoy!
 
 Recall:

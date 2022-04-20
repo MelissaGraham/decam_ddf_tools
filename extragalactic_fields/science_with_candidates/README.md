@@ -47,3 +47,11 @@ Recall:
  * output is `MLG_snia_menagerie_files/MLG_snia_menagerie.png`
 
 ## Notebooks (In Progress)
+
+### MLG_lowCobj_highMRB_investigation.ipynb
+
+**Description**<br>
+ * Investigate the nature of the low-Cobj, high mean R/B score candidates
+ 
+**Inputs/Outputs**<br>
+ * inputs are `../source_detection_summary_files/MLG_lowCobj_highMRB/`

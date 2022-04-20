@@ -44,6 +44,8 @@ Note:
    * candidates.dat (summary statistics for "probably-real" candidates, like number of detections)
    * candidate_objects_(field).dat (all objects for all "probably-real" candidates)
    * exposures_(field).dat (data for all exposures, e.g., limiting magnitudes, seeing)
+ * output files for further study of the low-Cobj, high mean R/B score candidates are in:
+   * `source_detection_summary_files/MLG_lowCobj_highMRB/`
 
 ### candidate_nightly_epochs.ipynb
 
@@ -66,4 +68,4 @@ Note:
  
 **Inputs/Outputs**<br>
  * inputs are the files in `candidate_nightly_epochs_files/`
- * output plots are in `candidate_nightly_epochs_figures/`
+ * output plots are in `candidate_nightly_epochs_summary_figures/`

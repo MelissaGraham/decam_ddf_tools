@@ -174,3 +174,25 @@ def pull_exptimes(cursor):
     result = np.array(result, dtype=str).transpose()
     
     np.savetxt("fnm_exptime.txt",result,fmt='%s', delimiter = "\t", header = "fnm \t exptime")
+    
+    
+def good_fnms(cursor):
+    """
+    Returns a list of the exposure ids and filenames of every science image in the database 
+    """
+    query = ("SELECT filename, header, filter, id "
+         "FROM exposures "
+         "LIMIT 1000000")
+    cursor.execute(query)
+
+    result = np.array(cursor.fetchall()).transpose()
+
+    result[1] = [str(i) for i in [i["EXPTIME"] for i in result[1]]] # Pull out the exposure times
+    
+    msk = np.where(((result[2]=="g") & (result[1].astype(float)>50)) | \
+             ((result[2]=="r") & (result[1].astype(float)>20)) | \
+             ((result[2]=="i") & (result[1].astype(float)>20)))[0]
+    
+    result = np.array([result[3],result[0]], dtype=str).transpose()[msk].transpose()    
+    
+    return result

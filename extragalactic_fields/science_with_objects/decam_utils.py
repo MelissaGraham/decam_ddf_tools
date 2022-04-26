@@ -4,7 +4,7 @@ import warnings
 warnings.simplefilter(action='ignore', category=FutureWarning)
 
 
-def rm_dupes( arr, ecols=None ):
+def rm_dupes( arr, ecols=None, print_num=False ):
     """
     Removes duplicate rows from a numpy array. Has functionality to exclude some column(s) from the duplicate-finding process.
     For the purposes of these notebooks, that should be the index of the object ID column, if your array includes it, and left blank
@@ -29,7 +29,8 @@ def rm_dupes( arr, ecols=None ):
         res = uarr
     else:
         res = np.append( [arr[ecols][ind]], uarr, axis=0 )
-    print( "%s duplicates removed" % ( len( arr[0] ) - len( res[0] ) ) )
+    if print_num == True:
+        print( "%s duplicates removed" % ( len( arr[0] ) - len( res[0] ) ) )
     return res
 
 def pull_exptimes(cursor):
@@ -72,7 +73,7 @@ def good_fnms(cursor):
     
     return result
 
-def plotlc( candname, cursor, rbcut=0.6, show_plot=True, term='AB' ):
+def plotlc( candname, cursor, rbcut=0.4, show_plot=True, term='AB' ):
     """
     This function creates a lightcurve plot for a given candidate in our dataset. To use it, just give it a candidate ID
     and whatever you've named your cursor object, and it will generate a lightcurve plot and return the final data it used to

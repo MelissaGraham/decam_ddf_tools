@@ -33,6 +33,7 @@ Note:
 **Description**<br>
  * Create plots to explore object detection and R/B scores vs. image quality.
  * Identify **"probably-real" candidates (>= 10 detections, mean R/B >= 0.4)** and create data files just for these candidates.
+ * Identify potential flare stars as candidates with > 1 detections in g-band, a mean R/B >=0.6, and a time span of <0.5 days (i.e., detected in one night only).
  * Write two naive filters to test methods for identifying transients and fast-risers with alerts. Find they're too simple to work well.
    * 'Transients' as candidates with >=5 objects in two consecutive nights in any filter (118 candidates)
    * 'Fast Risers' as candidates with >=5 objects in the first night in any filter, all brightening (0 candidates)
@@ -46,6 +47,9 @@ Note:
    * exposures_(field).dat (data for all exposures, e.g., limiting magnitudes, seeing)
  * output files for further study of the low-Cobj, high mean R/B score candidates are in:
    * `source_detection_summary_files/MLG_lowCobj_highMRB/`
+ * output files for further study of potential flare stars are in:
+   * `source_detection_summary_files/potential_flare_stars/`
+   * contains a candidates.dat and candidate_objects.dat
 
 ### candidate_nightly_epochs.ipynb
 

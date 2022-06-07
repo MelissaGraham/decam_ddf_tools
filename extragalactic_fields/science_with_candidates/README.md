@@ -52,10 +52,4 @@ Is saved in an executed state as a quicklook demo.
 
 ## Notebooks (In Progress)
 
-### MLG_lowCobj_highMRB_investigation.ipynb
-
-**Description**<br>
- * Investigate the nature of the low-Cobj, high mean R/B score candidates
- 
-**Inputs/Outputs**<br>
- * inputs are `../source_detection_summary_files/MLG_lowCobj_highMRB/`
+None right now.

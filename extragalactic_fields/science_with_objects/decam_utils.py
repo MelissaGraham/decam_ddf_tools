@@ -96,7 +96,7 @@ def plotlc( candname, cursor, rbcut=0.4, show_plot=True, term='AB' ):
     query = ( 'SELECT o.candidate_id, e.mjd, o.mag, e.filter, o.magerr, e.filename, rbs.rb FROM objects o '
              'JOIN subtractions s ON o.subtraction_id = s.id '
              'JOIN exposures e ON e.id = s.exposure_id '
-             'JOIN objectrbs as rbs ON o.id=rbs.object_id AND rbs.rbtype_id=1 '
+             'JOIN objectrbs as rbs ON o.id=rbs.object_id AND rbs.rbtype_id=2 '
              'WHERE o.candidate_id = %s '
              +propid+ 
              'AND rbs.rb > %s '

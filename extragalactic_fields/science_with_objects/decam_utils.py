@@ -50,8 +50,8 @@ def pull_exptimes(cursor):
     result = np.array(result, dtype=str).transpose()
     
     np.savetxt("fnm_exptime.txt",result,fmt='%s', delimiter = "\t", header = "fnm \t exptime")
-    
-    
+
+
 def good_fnms(cursor):
     """
     Returns a list of the exposure ids and filenames of every science image in the database 
@@ -73,14 +73,14 @@ def good_fnms(cursor):
     
     return result
 
-def plotlc( candname, cursor, rbcut=0.4, show_plot=True, term='AB' ):
+def plotlc( candname, cursor, rbcut=0.4, show_plot=True, term='AB', return_field=False ):
     """
     This function creates a lightcurve plot for a given candidate in our dataset. To use it, just give it a candidate ID
     and whatever you've named your cursor object, and it will generate a lightcurve plot and return the final data it used to
     make that plot in the form [gxdata, rxdata, ixdata], [gydata, rydata, iydata], [gyerrs, ryerrs, iyerrs].
     
     The optional argument(s):
-    rbcut : the lower bound to use for the RB cutoff (Default: 0.6)
+    rbcut : the lower bound to use for the RB cutoff (Default: 0.4)
     show_plot : Boolean, if True, generates a plot, if False, just returns the numbers
     term : Either 'A', 'B', or 'AB', depending on whether you want to see data from 2021A, 2021B, or both (default: 'AB')
     """
@@ -93,7 +93,7 @@ def plotlc( candname, cursor, rbcut=0.4, show_plot=True, term='AB' ):
         propid = 'AND e.proposalid = %s '
         
     # Grabbing all necessary data
-    query = ( 'SELECT o.candidate_id, e.mjd, o.mag, e.filter, o.magerr, e.filename, rbs.rb FROM objects o '
+    query = ( 'SELECT o.candidate_id, e.mjd, o.mag, e.filter, o.magerr, e.filename, rbs.rb, o.ra FROM objects o '
              'JOIN subtractions s ON o.subtraction_id = s.id '
              'JOIN exposures e ON e.id = s.exposure_id '
              'JOIN objectrbs as rbs ON o.id=rbs.object_id AND rbs.rbtype_id=2 '
@@ -114,9 +114,10 @@ def plotlc( candname, cursor, rbcut=0.4, show_plot=True, term='AB' ):
     udata = np.array( [ i.split(" ") for i in unique ] ).transpose()    
     
     # Cut out non-science images    
-    goodfnms = good_fnms(cursor)[1]
-    msk = np.isin(udata[5], goodfnms)
-    udata = np.array([i[msk] for i in udata])
+    if len(udata) > 0:
+        goodfnms = good_fnms(cursor)[1]
+        msk = np.isin(udata[5], goodfnms)
+        udata = np.array([i[msk] for i in udata])
     
     # Make arrays to store the data in the plot
     plotdates   = np.empty( 3, dtype=object )
@@ -124,7 +125,7 @@ def plotlc( candname, cursor, rbcut=0.4, show_plot=True, term='AB' ):
     plotmagerrs = np.empty( 3, dtype=object )
     
     # Assign field based on RA
-    if float(udata[6][0]) < 50:
+    if float(udata[7][0]) < 50:
         field = "ELIAS"
     else:
         field = "COSMOS"
@@ -183,9 +184,10 @@ def plotlc( candname, cursor, rbcut=0.4, show_plot=True, term='AB' ):
         plt.xlabel("MJD", fontsize=16)
         plt.gca().invert_yaxis()
         plt.show()
-    
-    return plotdates, plotmags, plotmagerrs
-
+    if return_field==False:
+        return plotdates, plotmags, plotmagerrs
+    elif return_field==True:
+        return plotdates, plotmags, plotmagerrs, field
 def lmt_mgs(cursor):
     """
     Creates a list of average limiting magnitudes over every night in each filter for both COSMOS and ELAIS. The nights are indexed for both so there will be NaN values if only one 
@@ -196,6 +198,8 @@ def lmt_mgs(cursor):
     cquery = ("SELECT e.mjd FROM exposures e "
              "WHERE e.proposalid = '2021A-0113' "
              "OR e.proposalid = '2021B-0149' "
+             "AND (e.ra < 50 "
+             "OR e.dec > 0) "
              "LIMIT 10000000")
     cursor.execute( cquery, )
 

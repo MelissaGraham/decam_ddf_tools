@@ -86,9 +86,9 @@ def plotlc( candname, cursor, rbcut=0.4, show_plot=True, term='AB', return_field
     """
     
     # Accounting for which term was selected. It's messy, but I can't seem to figure out a more elegant solution
-    if term == 'A': term='2021A-0113'
-    elif term == 'B': term='2021B-0149'
-    if term == 'AB': propid = ''
+    if term == 'A': terms='2021A-0113'
+    elif term == 'B': terms='2021B-0149'
+    if term == 'AB': propid, terms = 'AND (e.proposalid = %s OR e.proposalid = %s) ', ['2021A-0113','2021B-0149']
     else: 
         propid = 'AND e.proposalid = %s '
         
@@ -104,78 +104,89 @@ def plotlc( candname, cursor, rbcut=0.4, show_plot=True, term='AB', return_field
              'LIMIT 10000000' )
     
     
-    if term=='AB': cursor.execute(query, (candname, rbcut, ))
-    else: cursor.execute(query, (candname, term, rbcut, ))
+    if term=='AB': cursor.execute(query, (candname,terms[0],terms[1], rbcut, ))
+    else: cursor.execute(query, (candname, terms, rbcut, ))
     rawdata = np.array(cursor.fetchall())
     
     # Removing duplicates
     dupedata = np.array( [" ".join(i) for i in rawdata] )
     unique, ind = np.unique( dupedata, return_index=True )
-    udata = np.array( [ i.split(" ") for i in unique ] ).transpose()    
+    udata = np.array( [ i.split(" ") for i in unique ] ).transpose()
     
+    field = None
+    c = ["r","g","b"]
     # Cut out non-science images    
     if len(udata) > 0:
         goodfnms = good_fnms(cursor)[1]
         msk = np.isin(udata[5], goodfnms)
         udata = np.array([i[msk] for i in udata])
-    
+        if float(udata[7][0]) < 50:
+            field = "ELIAS"
+        else:
+            field = "COSMOS"
+        if field == "COSMOS": c = ["darkgreen", "red", "brown"]
+        elif field == "ELIAS": c = ["limegreen", "darkorange", "peru"]
     # Make arrays to store the data in the plot
     plotdates   = np.empty( 3, dtype=object )
     plotmags    = np.empty( 3, dtype=object )
     plotmagerrs = np.empty( 3, dtype=object )
     
     # Assign field based on RA
-    if float(udata[7][0]) < 50:
-        field = "ELIAS"
-    else:
-        field = "COSMOS"
+    # if float(udata[7][0]) < 50:
+    #     field = "ELIAS"
+    # else:
+    #     field = "COSMOS"
     # Assign color palette for plotting based on field
-    if field == "COSMOS": c = ["darkgreen", "red", "brown"]
-    elif field == "ELIAS": c = ["limegreen", "darkorange", "peru"]
+    
     
     if show_plot==True:
         plt.figure(figsize=(8,5))
     
     filters = ["g", "r", "i"]
     for i in [0, 1, 2]: # Looping through filters
-        # Grab only the data in the filter you want
-        fmsk = np.where( udata[3] == filters[i] )[0]
-        fdata = [i[fmsk] for i in udata]
-        # Create an array of all unique dates (rounded) this candidate was detected on in this filter 
-        fdatesrd = np.unique( np.round( fdata[1].astype(float) ) )
-        datemsks = [np.where(np.abs(fdata[1].astype(float)-i) < 0.5) for i in fdatesrd]
-        fdates = [np.mean(fdata[1][i].astype(float)) for i in datemsks]
-        
-        # Pull out all of the dates (rounded but non-unique)
-        fcanddates = np.round(fdata[1].astype(float))
-        # Pull out all of the measured magnitudes
-        fcandmags = fdata[2].astype(float)
-        # Pull out all of the measured magnitude errors
-        fcandmagerrs = fdata[4].astype(float)
-        
-        # Create arrays to store the night, mag, and magerr data for just this filter
-        fnight  = np.empty( len( fdates ), dtype=object )
-        fmag    = np.empty( len( fdates ), dtype=object )
-        fmagerr = np.empty( len( fdates ), dtype=object )
-        
-        # Loop through each night to assign a magnitude and magnitude error to each
-        for j in range( len( fdates ) ):
-            msk = np.where( fcanddates == np.round(fdates)[j] )[0]
-            # Magnitude for the night just the average mag of the night
-            fmag[j] = np.mean( fcandmags[msk] )
-            # Magerr for the night is the square root of the sum of squares of:
-            # the standard deviation of the mag values for the night, and
-            # the mean of the pipeline-assigned errors for the night
-            fmagerr[j] = np.sqrt( np.mean( fcandmagerrs[msk] )**2 + np.std( fcandmags[msk] )**2 ) 
-                    
-        # Plot the lightcurve in whichever filter we're in
-        if show_plot==True:
-            plt.errorbar( fdates, fmag, yerr=fmagerr, color=c[i] )
-        
-        # Save this filter's data in the appropriate places for the return statement
-        plotdates[i]   = fdates
-        plotmags[i]    = fmag
-        plotmagerrs[i] = fmagerr
+        try:
+            # Grab only the data in the filter you want
+            fmsk = np.where( udata[3] == filters[i] )[0]
+            fdata = [i[fmsk] for i in udata]
+            # Create an array of all unique dates (rounded) this candidate was detected on in this filter 
+            fdatesrd = np.unique( np.round( fdata[1].astype(float) ) )
+            datemsks = [np.where(np.abs(fdata[1].astype(float)-i) < 0.5) for i in fdatesrd]
+            fdates = [np.mean(fdata[1][i].astype(float)) for i in datemsks]
+
+            # Pull out all of the dates (rounded but non-unique)
+            fcanddates = np.round(fdata[1].astype(float))
+            # Pull out all of the measured magnitudes
+            fcandmags = fdata[2].astype(float)
+            # Pull out all of the measured magnitude errors
+            fcandmagerrs = fdata[4].astype(float)
+
+            # Create arrays to store the night, mag, and magerr data for just this filter
+            fnight  = np.empty( len( fdates ), dtype=object )
+            fmag    = np.empty( len( fdates ), dtype=object )
+            fmagerr = np.empty( len( fdates ), dtype=object )
+
+            # Loop through each night to assign a magnitude and magnitude error to each
+            for j in range( len( fdates ) ):
+                msk = np.where( fcanddates == np.round(fdates)[j] )[0]
+                # Magnitude for the night just the average mag of the night
+                fmag[j] = np.mean( fcandmags[msk] )
+                # Magerr for the night is the square root of the sum of squares of:
+                # the standard deviation of the mag values for the night, and
+                # the mean of the pipeline-assigned errors for the night
+                fmagerr[j] = np.sqrt( np.mean( fcandmagerrs[msk] )**2 + np.std( fcandmags[msk] )**2 ) 
+
+            # Plot the lightcurve in whichever filter we're in
+            if show_plot==True:
+                plt.errorbar( fdates, fmag, yerr=fmagerr, color=c[i] )
+
+            # Save this filter's data in the appropriate places for the return statement
+            plotdates[i]   = fdates
+            plotmags[i]    = fmag
+            plotmagerrs[i] = fmagerr
+        except:
+            plotdates[i]   = []
+            plotmags[i]    = []
+            plotmagerrs[i] = []
     
     # Plot formatting
     if show_plot==True:

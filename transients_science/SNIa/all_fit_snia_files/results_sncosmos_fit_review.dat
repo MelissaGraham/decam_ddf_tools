@@ -1,87 +1,88 @@
 # Melissa Graham & Midori Rollins, review_potential_snia_sncosmos.ipynb 
-# UTC = Mon, 10 Jul 2023 01:11:29 +0000 
+# UTC = Mon, 10 Jul 2023 04:14:23 +0000 
 # 
 # Columns 
 #  0 id -- candidate identifier 
 #  1 fit flag: 0 for OK, 1 for poor fit 
+#  2 fit flag by Midori Rollins:  
 # 
-DC21bfph        1 
-DC21bkrj        0 
-DC21bpls        0 
-DC21cgfhs       1 
-DC21cgfrp       0 
-DC21cgfui       1 
-DC21cove        0 
-DC21cozcn       0 
-DC21cpais       0 
-DC21cpcjp       0 
-DC21cvh         1 
-DC21cwtlp       0 
-DC21cwtvj       0 
-DC21cwxin       0 
-DC21cyddn       0 
-DC21cynfs       0 
-DC21cynqo       0 
-DC21dglus       1 
-DC21dhgm        1 
-DC21dhgr        0 
-DC21djbfp       0 
-DC21dna         0 
-DC21dpwcq       0 
-DC21dqik        0 
-DC21drcko       0 
-DC21drcmp       0 
-DC21driax       0 
-DC21dslz        0 
-DC21dsocp       0 
-DC21dtwb        0 
-DC21ecmr        1 
-DC21edhi        1 
-DC21emxv        1 
-DC21eoo         1 
-DC21eqq         0 
-DC21eqtm        0 
-DC21eyf         1 
-DC21fber        0 
-DC21fchc        1 
-DC21frjc        0 
-DC21gbza        1 
-DC21gocx        1 
-DC21grk         1 
-DC21hpdc        1 
-DC21ijs         1 
-DC21jfcb        0 
-DC21jof         0 
-DC21ktp         0 
-DC21kxb         1 
-DC21lvlb        1 
-DC21lza         1 
-DC21mjrj        1 
-DC21mvh         1 
-DC21pry         1 
-DC21vfl         1 
-DC22duvcm       0 
-DC22earrc       0 
-DC22eawkf       0 
-DC22gtccc       0 
-DC22gtdsi       0 
-DC22gtowb       0 
-DC22gtqyk       0 
-DC22guhrf       0 
-DC22gvcqm       1 
-DC22hvtap       1 
-DC22hvtet       1 
-DC22hvtwp       0 
-DC22hvuhl       1 
-DC22hvuzr       0 
-DC22hxfpz       0 
-DC22hxfsi       0 
-DC22icaog       0 
-DC22ikidc       0 
-DC22isyfm       0 
-DC22iteny       1 
-DC22iykha       0 
-DC22jbqyi       1 
-DC22jcvsy       0 
-DC23jjloo       0 
-DC23jmqzz       0 
+DC21bfph        1  0 
+DC21bkrj        0  0 
+DC21bpls        0  0 
+DC21cgfhs       1  0 
+DC21cgfrp       0  0 
+DC21cgfui       1  0 
+DC21cove        0  0 
+DC21cozcn       0  0 
+DC21cpais       0  0 
+DC21cpcjp       0  0 
+DC21cvh         1  0 
+DC21cwtlp       0  0 
+DC21cwtvj       0  0 
+DC21cwxin       0  0 
+DC21cyddn       0  0 
+DC21cynfs       0  0 
+DC21cynqo       0  0 
+DC21dglus       1  0 
+DC21dhgm        1  0 
+DC21dhgr        0  0 
+DC21djbfp       0  0 
+DC21dna         0  0 
+DC21dpwcq       0  0 
+DC21dqik        0  0 
+DC21drcko       0  0 
+DC21drcmp       0  0 
+DC21driax       0  0 
+DC21dslz        0  0 
+DC21dsocp       0  0 
+DC21dtwb        0  0 
+DC21ecmr        1  0 
+DC21edhi        1  0 
+DC21emxv        1  0 
+DC21eoo         1  0 
+DC21eqq         0  0 
+DC21eqtm        0  0 
+DC21eyf         1  0 
+DC21fber        0  0 
+DC21fchc        1  0 
+DC21frjc        0  0 
+DC21gbza        1  0 
+DC21gocx        1  0 
+DC21grk         1  0 
+DC21hpdc        1  0 
+DC21ijs         1  0 
+DC21jfcb        0  0 
+DC21jof         0  0 
+DC21ktp         0  0 
+DC21kxb         1  0 
+DC21lvlb        1  0 
+DC21lza         1  0 
+DC21mjrj        1  0 
+DC21mvh         1  0 
+DC21pry         1  0 
+DC21vfl         1  0 
+DC22duvcm       0  0 
+DC22earrc       0  0 
+DC22eawkf       0  0 
+DC22gtccc       0  0 
+DC22gtdsi       0  0 
+DC22gtowb       0  0 
+DC22gtqyk       0  0 
+DC22guhrf       0  0 
+DC22gvcqm       1  0 
+DC22hvtap       1  0 
+DC22hvtet       1  0 
+DC22hvtwp       0  0 
+DC22hvuhl       1  0 
+DC22hvuzr       0  0 
+DC22hxfpz       0  0 
+DC22hxfsi       0  0 
+DC22icaog       0  0 
+DC22ikidc       0  0 
+DC22isyfm       0  0 
+DC22iteny       1  0 
+DC22iykha       0  0 
+DC22jbqyi       1  0 
+DC22jcvsy       0  0 
+DC23jjloo       0  0 
+DC23jmqzz       0  0 

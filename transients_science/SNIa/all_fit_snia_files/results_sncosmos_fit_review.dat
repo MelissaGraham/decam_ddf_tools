@@ -1,5 +1,5 @@
 # Melissa Graham & Midori Rollins, review_potential_snia_sncosmos.ipynb 
-# UTC = Fri, 04 Aug 2023 21:54:43 +0000 
+# UTC = Tue, 15 Aug 2023 21:13:33 +0000 
 # 
 # Columns 
 #  0 id -- candidate identifier 
@@ -51,7 +51,7 @@ DC21ijs         1  2
 DC21jfcb        0  0 
 DC21jof         0  1 
 DC21ktp         0  0 
-DC21kue         0  2 
+DC21kue         1  2 
 DC21kxb         1  2 
 DC21lvlb        1  2 
 DC21mjrj        1  1 
@@ -80,21 +80,21 @@ DC22hxfsi       0  1
 DC22icaog       0  1 
 DC22ikidc       0  1 
 DC22isyfm       0  1 
-DC22iykha       1  1 
+DC22iykha       0  1 
 DC22jcvsy       0  2 
 DC23jjloo       0  0 
 DC23jmqzz       0  1 
 DC23jpbgx       0  1 
 DC23jsner       0  1 
-DC23jurva       0  2 
+DC23jurva       1  2 
 DC23jxtzq       0  1 
-DC23jxvff       0  2 
+DC23jxvff       1  2 
 DC23jzmev       0  1 
-DC23kdata       1  1 
+DC23kdata       0  1 
 DC23kjsjk       0  1 
 DC23kosqy       0  0 
 DC23kpigs       0  0 
-DC23kpkys       0  2 
+DC23kpkys       1  2 
 DC23krtnc       0  0 
 DC23kvgpp       0  1 
-DC23kwcyd       0  1 
+DC23kwcyd       1  1 

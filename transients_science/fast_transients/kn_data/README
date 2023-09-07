@@ -1,0 +1,76 @@
+This tarball contains data and data-derived models from the paper:
+
+"The Electromagnetic Counterpart of the Binary Neutron Star Merger LIGO/VIRGO GW170817. II. UV, Optical, and Near-infrared Light Curves and Comparison to Kilonova Models" by Cowperthwaite, P. S. et al
+
+The tarball contains the following files:
+
+### RAW PHOTOMETRY DATA ###
+decam_photometry.csv - A CSV file of all DECam photometry used in this work. This photometry is NOT corrected for reddening nor extinction.
+
+The columns are:
+mjd - MJD Date of observation
+band - Bandpass of observation
+flux - Measured difference flux 
+dflux - Error in measured difference flux
+mag - AB magnitude from -2.5log10(flux) + zpt
+dmag - Random error in AB magnitude
+snr - Signal-to-noise ratio of detection
+zpt - Derived supercal zeropoint from PS1->DECam (AB Magnitudes)
+dzpt - Systematic error in zeropoint determination
+
+gemini_photometry.csv - A CSV File of all Gemini-South/FLAMINGOS2 photometry used in this work. This photometry is NOT corrected for reddending nor extinction
+
+The columns are:
+mjd - MJD Date of observation
+band - Bandpass of observation
+flux - Calibrated flux from 10^(-0.4 * (mag - zpt)), zpt = 30 
+dflux - Error in calibrated flux
+mag - AB magnitudes
+dmag - Random error in AB magnitude
+snr - Signal-to-noise ratio of detection
+
+### MODEL DATA ###
+
+General Notes:
+[1] The model magnitudes are fit against extinction corrected photometry. The extinction correction values in magnitudes, for E(B-V) = 0.105, are:
+
+DECam Filters:
+{'u' : 0.42,
+ 'g' : 0.33,
+ 'r' : 0.22,
+ 'i' : 0.16,
+ 'z' : 0.12,
+ 'Y' : 0.11}
+
+GEMINI Filters:
+{'H'  : 0.06,
+ 'Ks' : 0.04}
+
+[2] The model timesteps are nonuniform due to an output issue with Mosfit. Do not use under the assumption of uniform time sampling.
+
+[3] All model files have the same CSV/column structure:
+
+time - time since explosion/merger
+mjd - model time in MJD for direct comparison to light curves
+band - bandpass 
+mag - model magnitude (extinction corrected)
+
+The complete list of model data files is:
+
+[1] kn_model_one_comp_free.csv - A single component r-process powered kilonova, with opacity as a free parameter. See Section 4 and lower right panel of Figure 3 in the paper.
+
+[2] kn_model_one_comp_blue.csv - A single component r-process powered kilonova, with opacity set to be consistent with "blue" kilonova emission.  See Section 4 and upper right panel of Figure 3 in the paper.
+
+[3] kn_model_one_comp_red.csv - A single component r-process powered kilonova, with opacity set to be consistent with "red" kilonova emission.  See Section 4 and lower left panel of Figure 3 in the paper.
+
+[4] kn_model_Ni56.csv - A single component Ni56 powered model, with opacity set to be consistent with Fe-peak elements.  See Section 4 and upper left panel of Figure 3 in the paper.
+
+[5]  kn_model_two_comp.csv - A two component (red + blue), r-process powered kilonova model. See Section 4 and Figure 1 in the paper.
+[5a] kn_model_two_comp_blue.csv - The blue component of the (red + blue) kilonova model. See Section 4 in the paper.
+[5b] kn_model_two_comp_red.csv - The red component of the (red + blue) kilonova model. See Section 4 in the paper.
+
+[6]  kn_model_three_comp.csv - A three component (red + purple + blue), r-process powered kilonova model. See Section 4 in the paper.
+[6a] kn_model_three_comp_blue.csv - The blue component of the (red + purple + blue) kilonova model. See Section 4 in the paper.
+[6b] kn_model_three_comp_purple.csv - The purple component of the (red + purple + blue) kilonova model. See Section 4 in the paper.
+[6c] kn_model_three_comp_red.csv - The red component of the (red + purple + blue) kilonova model. See Section 4 in the paper.
+

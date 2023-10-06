@@ -1,0 +1,93 @@
+DC21bfph  2 # never fit
+DC21bkrj  0 # well sampled well fit SNIa-like
+DC21bpls  2 # mix of AGN + SN
+DC21cgfhs 2 # decline only
+DC21cgfrp 0 # well sampled well fit SNIa-like
+DC21cgfui 2 # ri, decline only
+DC21cove  0 # well sampled well fit SNIa-like
+DC21cozcn 0 # well sampled well fit SNIa-like
+DC21cpais 2 # decline only, 3 g epochs only
+DC21cpcjp 0 # well sampled well fit SNIa-like
+DC21cvh   2 # not SNIa
+DC21cwtlp 0 # well sampled well fit SNIa-like
+DC21cwtvj 0 # well sampled well fit SNIa-like
+DC21cwxin 0 # well sampled OK fit r-band is off in fit
+DC21cyddn 0 # well sampled well fit SNIa-like
+DC21cynfs 2 # near-peak ri only, noisy
+DC21cynqo 2 # poorly sampled, 3 g epochs only
+DC21dglus 2 # decline only
+DC21dhgm  2 # multi-peak, gr only
+DC21dhgr  0 # well sampled well fit SNIa-like
+DC21djbfp 2 # near-peak only, 3 g epochs only
+DC21dna   2 # decline only, 2 g epoch sonly, poor fit
+DC21dpwcq 1 # not well sampled, noisy, <20 days post-peak
+DC21dqik  0 # well sampled well fit SNIa-like
+DC21drcko 0 # well sampled well fit SNIa-like
+DC21drcmp 0 # well sampled well fit SNIa-like
+DC21driax 2 # ri only
+DC21dslz  0 # well sampled well fit SNIa-like
+DC21dsocp 0 # well sampled well fit SNIa-like (has host)
+DC21dtwb  0 # but note a late-time reappearance? 
+DC21emxv  2 # gr only, not SNIa-like, AGN?
+DC21eoo   2 # gr only, not SNIa-like, AGN?
+DC21eqq   2 # ri only, decline only
+DC21eqtm  1 # rise, near-peak only, 2 g epochs only
+DC21esjb  1 # not well sampled, decline-only in g, noisy
+DC21fber  0 # well sampled well fit SNIa-like
+DC21fmlu  1 # poor fit in g especially
+DC21frjc  2 # legit precursor detection, AGN?
+DC21gocx  2 # gr only, not SNIa-like, AGN?
+DC21grk   2 # gr only, not SNIa-like, AGN?
+DC21hpdc  2 # decline only, not SNIa-like, AGN?
+DC21ijs   2 # noisy, not SNIa-like
+DC21jfcb  1 # not well sampled, noisy, not well fit
+DC21jof   2 # ri only, decline only
+DC21ktp   1 # decline only, questionable fit
+DC21kue   2 # never fit (flat LC)
+DC21kxb   2 # not SNIa-like, maybe CCSN
+DC21lvlb  2 # decline only, not SNIa-like, AGN?
+DC21mjrj  2 # ri only, decline only
+DC21mvh   2 # gr only, noisy, AGN?
+DC21pry   2 # gr only, noisy, AGN?
+DC21vfl   2 # never fit (poor LC)
+DC22duvcm 1 # insufficiently sampled
+DC22earrc 1 # insufficiently sampled
+DC22eawkf 1 # gri decline only, SNIa-like but poor fit
+DC22enklo 1 # non-SNIa like, long-term i band detections
+DC22gtccc 2 # not SNIa-like, 3 g epochs only
+DC22gtdsi 1 # decline only, 3 g epochs only
+DC22gtowb 2 # gr only
+DC22gtpdx 1 # poor fit, few g-band LC points
+DC22gtqyk 1 # mostly rise-only, missing decline
+DC22guhrf 2 # decline only, 2 g epochs only
+DC22gvcqm 2 # decline only, not SNIa-like, 2 g epochs only
+DC22gwmgv 0 # ok fit, few g-band LC points
+DC22hvtap 2 # decline only, SNIa-ish but bright late epochs
+DC22hvtet 2 # late-time decline only, ri only
+DC22hvtwp 0 # ok sampled ok fit SNIa-like
+DC22hvuhl 2 # decline only, 2 epochs g only, not SNIa-like
+DC22hvuzr 2 # decline only
+DC22hxfpz 0 # ok sampled ok fit SNIa-like
+DC22hxfsi 1 # gr only
+DC22icaog 1 # poorly sampled
+DC22ikidc 2 # not SNIa-like; interesting LC like hvtap
+DC22isyfm 2 # poorly sampled
+DC22iykha 1 # well sampled ok fit but odd, non-SNIa at late times, maybe SNIbc? NO HOST??
+DC22jcvsy 2 # poorly sampled, non-SNIa like in g
+DC23jjloo 1 # poorly sampled, gr decline only
+DC23jmqzz 2 # gr only, only 1 r epoch on decline
+DC23jpbgx 2 # gr only
+DC23jsner 0 # ok sampled ok fit SNIa-like
+DC23jurva 2 # never fit (poor LC)
+DC23jxtzq 1 # poor fit not SNIa-like i-band flat, CCSN?
+DC23jxvff 2 # not SNIa-like, flat LC, maybe SNCC?
+DC23jzmev 1 # gr only
+DC23kdata 1 # ok sampled, ok fit, i-band odd, decline odd hvtap (does have host, suspiciously low redshift)
+DC23kjsjk 1 # decline only except i-band
+DC23kosqy 1 # poorly sampled
+DC23kpigs 1 # poorly sampled and noisy
+DC23kpkys 2 # not SNIa-like
+DC23krtnc 1 # poorly sampled, poor fit
+DC23kvgpp 2 # rise only
+DC23kwcyd 2 # ri only, rise only
+DC23ldjbe 1 # poorly sampled

@@ -1,5 +1,5 @@
 # Melissa Graham & Midori Rollins, review_potential_snia_sncosmos.ipynb 
-# UTC = Wed, 16 Aug 2023 23:19:38 +0000 
+# UTC = Fri, 06 Oct 2023 01:46:12 +0000 
 # 
 # Columns 
 #  0 id -- candidate identifier 
@@ -28,19 +28,18 @@ DC21dhgm        2  2
 DC21dhgr        0  0 
 DC21djbfp       2  0 
 DC21dna         2  2 
-DC21dpwcq       0  1 
+DC21dpwcq       1  1 
 DC21dqik        0  0 
 DC21drcko       0  0 
 DC21drcmp       0  0 
 DC21driax       2  1 
 DC21dslz        0  1 
 DC21dsocp       0  0 
-DC21dtwb        1  0 
-DC21emxv        2  2 
+DC21dtwb        0  0 
 DC21eoo         2  2 
 DC21eqq         2  1 
 DC21eqtm        1  1 
-DC21esjb        0  0 
+DC21esjb        1  0 
 DC21fber        0  0 
 DC21fmlu        1  1 
 DC21frjc        2  1 
@@ -48,9 +47,9 @@ DC21gocx        2  2
 DC21grk         2  2 
 DC21hpdc        2  2 
 DC21ijs         2  2 
-DC21jfcb        0  0 
+DC21jfcb        1  0 
 DC21jof         2  1 
-DC21ktp         0  0 
+DC21ktp         1  0 
 DC21kue         2  2 
 DC21kxb         2  2 
 DC21lvlb        2  2 
@@ -61,11 +60,10 @@ DC21vfl         2  2
 DC22duvcm       1  1 
 DC22earrc       1  1 
 DC22eawkf       1  1 
-DC22enklo       1  2 
 DC22gtccc       2  1 
 DC22gtdsi       1  1 
 DC22gtowb       2  1 
-DC22gtpdx       0  0 
+DC22gtpdx       1  0 
 DC22gtqyk       1  1 
 DC22guhrf       2  1 
 DC22gvcqm       2  1 
@@ -93,8 +91,8 @@ DC23jzmev       1  1
 DC23kdata       1  1 
 DC23kjsjk       1  1 
 DC23kosqy       1  0 
-DC23kpigs       0  0 
+DC23kpigs       1  0 
 DC23kpkys       2  2 
-DC23krtnc       0  0 
+DC23krtnc       1  0 
 DC23kvgpp       2  1 
-DC23kwcyd       2  1 
+DC23ldjbe       1  2 

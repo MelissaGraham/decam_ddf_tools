@@ -1,12 +1,10 @@
-The order for working on SNIa in this directory is:
+This directory contains all of the notebooks and analysis that were used for the SNIa
+section in the Graham+2024 paper.
 
-test_sncosmo.ipynb
+The notebooks are numbered so they appear in approximately the order they should
+be executed to recreate the analysis in the paper.
 
-1_create_potential_snia_list.ipynb
+All are welcome to use this data and the contents of these notebooks and
+cite the Graham+2024 paper. Please contact Melissa Graham with any questions.
 
-2_fit_potential_snia_sncosmo.ipynb
-
-3_review_potential_snia_sncosmo.ipynb
-
-4_analyze_potential_snia_sncosmo.ipynb
-
+https://astro.washington.edu/people/melissa-l-graham

@@ -25,7 +25,7 @@ DC21dqik  0 # well sampled
 DC21drcko 0 # good in ri, only 4 g epochs, sufficient decline in ri
 DC21drcmp 0 # well sampled 
 DC21driax 2 # ri only
-DC21dslz  0 # ok in ri, 4 g epochs pre-peak, 15+ days decline in ri
+DC21dslz  2 # g-band decline only
 DC21dsocp 0 # sparse but 3 filters and 15+ days decline
 DC21dtwb  0 # but note a late-time reappearance in r-band 
 DC21emxv  2 # gr only, AGN?
@@ -54,7 +54,7 @@ DC22duvcm 2 # insufficiently sampled
 DC22earrc 2 # insufficiently sampled
 DC22eawkf 2 # gri decline only
 DC22enklo 2 # never fit
-DC22gtccc 0 # ri sufficiently sampled, only 3 g epochs
+DC22gtccc 2 # insufficient g-band 
 DC22gtdsi 2 # decline only, 3 g epochs only
 DC22gtowb 2 # gr only
 DC22gtpdx 0 # ri ok, 4 noisy g-band epochs, 15+ days decline in ri
@@ -91,3 +91,43 @@ DC23krtnc 0 # sufficiently sampled
 DC23kvgpp 2 # rise only
 DC23kwcyd 2 # never fit
 DC23ldjbe 2 # decline-only
+DC21bcpi  2 # ri only
+DC21bohl  2 # g insufficiently sampled
+DC21bwajh 2 # scatter non-transient
+DC21bwbfe 2 # too steep, flat in g
+DC21bxvcb 2 # insufficient decline
+DC21cgfvi 2 # ri only 
+DC21cyks  2 # insufficient decline in g
+DC21djbcj 2 # ri only
+DC21dlono 2 # ri only
+DC21dqpcm 0 # well sampled if a bit noisy
+DC21dqqdr 1 # g is decline only but ri ok 
+DC21drcum 2 # g insufficiently sampled
+DC21drien 2 # ri only
+DC21eere  2 # flat noisy lc
+DC21fsdd  2 # g insufficient decline
+DC21gayy  2 # ri only
+DC21lbmp  2 # flat noisy lc
+DC21lqtw  2 # flat noisy lc
+DC21mp    2 # gi only (weird)
+DC21qil   2 # noisy lc
+DC22eathc 2 # decline only
+DC22gtbtd 2 # decline only
+DC22hirtc 2 # noisy lc
+DC22hvvaj 2 # ri only
+DC22hxfom 0 # 
+DC22iwnti 2 # ri only
+DC22jckoa 2 # noisy lc
+DC22jcyuz 2 # decline only & insufficient g
+DC23jhgml 2 # ri only
+DC23jjkcv 2 # inconsistent decline
+DC23jjmhv 2 # gr only
+DC23jqitt 2 # ri only
+DC23jwhoq 0 # one poor i-band point
+DC23jwnzq 0 # a bit noisy tho
+DC23jwvwc 0 # minimal g-band decline
+DC23khfqh 2 # plateau-like
+DC23kmybj 2 # plateau-like
+DC23kmzfs 2 # ri only
+DC23kwpaw 0 # ok
+DC23lcpnh 2 # decline only

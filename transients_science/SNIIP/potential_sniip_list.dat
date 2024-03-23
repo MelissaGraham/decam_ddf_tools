@@ -1,5 +1,24 @@
-DC21bezt
-DC22hxfqh
-DC23jmszp
-DC23kgbgx
-DC23kgxwc
+# Melissa Graham, 1_find_potential_sniip.ipynb 
+# UTC = 2024-03-23 16:49:10.931823 
+# 
+# Columns 
+#  0 id       : candidate identifier 
+#  1 t0_g     : MJD of first detection in g 
+#  2 t0_r     : MJD of first detection in r 
+#  3 t0_i     : MJD of first detection in i 
+#  4 pspan_g  : time span of potential plateau used for slope in g 
+#  5 pspan_r  : time span of potential plateau used for slope in r 
+#  6 pspan_i  : time span of potential plateau used for slope in i 
+#  7 pneps_g  : number of epochs during potential plateau used for slope in g 
+#  8 pneps_r  : number of epochs during potential plateau used for slope in r 
+#  9 pneps_i  : number of epochs during potential plateau used for slope in i 
+# 10 pslope_g : slope fit to potential plateau in g 
+# 11 pslope_r : slope fit to potential plateau in r 
+# 12 pslope_i : slope fit to potential plateau in i 
+# 13 pyint_g  : yinit fit to potential plateau in g 
+# 14 pyint_r  : yinit fit to potential plateau in r 
+# 15 pyint_i  : yinit fit to potential plateau in i 
+# 
+   DC21jay 59292.10 59292.08 59292.08  12.00  59.90  59.90   5  19  20 2.64299E-02 2.17954E-03 4.02118E-04 -1.54534E+03 -1.07553E+02 -2.41609E+00  
+ DC23jmrgj 59962.28 59962.28 59962.27  14.87  47.83  61.90   5  13  16 3.59871E-02 8.53968E-03 3.29083E-03 -2.13686E+03 -4.90673E+02 -1.75897E+02  
+ DC23jmszp 59962.28 59962.28 59962.28  41.85  47.82  55.87  10  13  14 8.04071E-03 4.68917E-03 6.58228E-04 -4.60139E+02 -2.59180E+02 -1.72807E+01  

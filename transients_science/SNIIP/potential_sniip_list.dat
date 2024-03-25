@@ -1,5 +1,28 @@
-DC21bezt
-DC22hxfqh
-DC23jmszp
-DC23kgbgx
-DC23kgxwc
+# Melissa Graham, 1_find_potential_sniip.ipynb 
+# UTC = 2024-03-24 19:15:01.620583 
+# 
+# Columns 
+#  0 id       : candidate identifier 
+#  1 t0_g     : MJD of first detection in g 
+#  2 t0_r     : MJD of first detection in r 
+#  3 t0_i     : MJD of first detection in i 
+#  4 pspan_g  : time span of potential plateau used for slope in g 
+#  5 pspan_r  : time span of potential plateau used for slope in r 
+#  6 pspan_i  : time span of potential plateau used for slope in i 
+#  7 pneps_g  : number of epochs during potential plateau used for slope in g 
+#  8 pneps_r  : number of epochs during potential plateau used for slope in r 
+#  9 pneps_i  : number of epochs during potential plateau used for slope in i 
+# 10 pslope_g : slope fit to potential plateau in g 
+# 11 pslope_r : slope fit to potential plateau in r 
+# 12 pslope_i : slope fit to potential plateau in i 
+# 13 pyint_g  : yinit fit to potential plateau in g 
+# 14 pyint_r  : yinit fit to potential plateau in r 
+# 15 pyint_i  : yinit fit to potential plateau in i 
+# 
+ DC21daldo 59498.22 59501.22 59501.21   9.00  52.88  55.88   4   9  11 5.07427E-02 1.29822E-02 4.74917E-03 -2.99789E+03 -7.50540E+02 -2.60513E+02  
+   DC21jay 59292.10 59292.08 59292.08  12.00  59.90  59.90   5  19  20 2.64299E-02 2.17954E-03 4.02118E-04 -1.54534E+03 -1.07553E+02 -2.41609E+00  
+ DC22hxfqh 59739.39 59739.39 59739.38  57.95  57.95  57.95   5   8   8 1.09246E-02 4.98477E-04 -2.43561E-03 -6.31054E+02 -8.33322E+00 1.66909E+02  
+ DC22iykhs 59854.18 59854.19 59854.19  14.97  59.83  23.91   5  10   9 1.58144E-02 1.76979E-02 8.29665E-03 -9.24507E+02 -1.03769E+03 -4.74864E+02  
+ DC23jmrgj 59962.28 59962.28 59962.27  14.87  47.83  61.90   5  13  16 3.59871E-02 8.53968E-03 3.29083E-03 -2.13686E+03 -4.90673E+02 -1.75897E+02  
+ DC23jmszp 59962.28 59962.28 59962.28  41.85  47.82  55.87  10  13  14 8.04071E-03 4.68917E-03 6.58228E-04 -4.60139E+02 -2.59180E+02 -1.72807E+01  
+ DC23kzuyh 60094.40 60094.40 60094.41  44.93  47.92  47.92   6  10  10 1.80998E-02 1.35558E-02 1.12211E-02 -1.06660E+03 -7.94278E+02 -6.54135E+02  

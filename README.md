@@ -3,6 +3,8 @@ Tools for analyzing the DECam DDF program data.
 
 ## Paper II
 
+https://ui.adsabs.harvard.edu/abs/2024MNRAS.535.3307G/abstract
+
 See the README in the transient_science directory.
 
 ## Paper I
